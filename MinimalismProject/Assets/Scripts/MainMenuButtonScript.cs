@@ -7,6 +7,7 @@ public class MainMenuButtonScript : MonoBehaviour
 
     [SerializeField] private Animator MainMenuAnim;
     [SerializeField] private Animator SettingsAnim;
+    [SerializeField] private Animator CreditsAnim;
     public void quit()
     {
         Application.Quit();
@@ -27,5 +28,17 @@ public class MainMenuButtonScript : MonoBehaviour
     {
         MainMenuAnim.SetBool("MainMenuZoom", false);
         SettingsAnim.SetBool("SettingsComeBack", false);
+    }
+
+    public void credits()
+    {
+        MainMenuAnim.SetBool("ShowCredits", true);
+        CreditsAnim.SetBool("CreditsSlideIn", true);
+    }
+
+    public void backFromCredits()
+    {
+        MainMenuAnim.SetBool("ShowCredits", false);
+        CreditsAnim.SetBool("CreditsSlideIn", false);
     }
 }
