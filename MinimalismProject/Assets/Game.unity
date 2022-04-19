@@ -570,6 +570,7 @@ GameObject:
   - component: {fileID: 989966584}
   - component: {fileID: 989966586}
   - component: {fileID: 989966585}
+  - component: {fileID: 989966587}
   m_Layer: 0
   m_Name: Square
   m_TagString: VisionCone
@@ -668,6 +669,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &989966587
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 989966583}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 0.0001
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &1023063657
 GameObject:
   m_ObjectHideFlags: 0
@@ -721,7 +743,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 570.8108
+  orthographic size: 552.0278
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
