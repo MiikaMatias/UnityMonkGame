@@ -8,6 +8,41 @@ public class MainMenuButtonScript : MonoBehaviour
     [SerializeField] private Animator MainMenuAnim;
     [SerializeField] private Animator SettingsAnim;
     [SerializeField] private Animator CreditsAnim;
+    [SerializeField] private Animator PauseAnim;
+
+    private void Start()
+    {
+
+
+
+
+        if (SceneManager.GetActiveScene().name == "Game")
+        {
+            SettingsAnim.SetBool("IsPauseMenu", true);
+            SettingsAnim = GameObject.FindGameObjectWithTag("SettingsAnim").GetComponent<Animator>();
+        }
+        else
+        {
+            MainMenuAnim = GameObject.FindGameObjectWithTag("MainMenuAnim").GetComponent<Animator>();
+            CreditsAnim = GameObject.FindGameObjectWithTag("CreditsAnim").GetComponent<Animator>();
+            SettingsAnim = GameObject.FindGameObjectWithTag("SettingsAnim").GetComponent<Animator>();
+
+            MainMenuAnim.SetBool("MainMenuZoom", false);
+            SettingsAnim.SetBool("SettingsComeBack", false);
+            MainMenuAnim.SetBool("ShowCredits", false);
+            CreditsAnim.SetBool("CreditsSlideIn", false);
+        }
+
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            StartCoroutine(findPausemenuafterdelay());
+        }
+    }
+
     public void quit()
     {
         Application.Quit();
@@ -26,8 +61,16 @@ public class MainMenuButtonScript : MonoBehaviour
 
     public void backFromSettings()
     {
-        MainMenuAnim.SetBool("MainMenuZoom", false);
-        SettingsAnim.SetBool("SettingsComeBack", false);
+        if (SceneManager.GetActiveScene().name == "Game")
+        {
+            SettingsAnim.SetBool("SettingsOn", false);
+            PauseAnim.SetBool("Settings", false);
+        }
+        else
+        {
+            MainMenuAnim.SetBool("MainMenuZoom", false);
+            SettingsAnim.SetBool("SettingsComeBack", false);
+        }
     }
 
     public void credits()
@@ -40,5 +83,11 @@ public class MainMenuButtonScript : MonoBehaviour
     {
         MainMenuAnim.SetBool("ShowCredits", false);
         CreditsAnim.SetBool("CreditsSlideIn", false);
+    }
+
+    private IEnumerator findPausemenuafterdelay()
+    {
+        yield return new WaitForSeconds(0.1f);
+        PauseAnim = GameObject.FindGameObjectWithTag("PauseAnim").GetComponent<Animator>();
     }
 }

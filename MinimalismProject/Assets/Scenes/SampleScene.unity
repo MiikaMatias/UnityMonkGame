@@ -1856,9 +1856,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 914ad3269d6c46644b26bbbbd3869d7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MainMenuAnim: {fileID: 0}
-  SettingsAnim: {fileID: 0}
-  CreditsAnim: {fileID: 0}
+  MainMenuAnim: {fileID: 1273331122}
+  SettingsAnim: {fileID: 766023364}
+  CreditsAnim: {fileID: 1650161008}
 --- !u!1 &766023362
 GameObject:
   m_ObjectHideFlags: 0
@@ -1875,7 +1875,7 @@ GameObject:
   - component: {fileID: 766023363}
   m_Layer: 5
   m_Name: Settings
-  m_TagString: Untagged
+  m_TagString: SettingsAnim
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1893,8 +1893,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MainMenuAnim: {fileID: 1273331122}
-  SettingsAnim: {fileID: 0}
-  CreditsAnim: {fileID: 0}
+  SettingsAnim: {fileID: 766023364}
+  CreditsAnim: {fileID: 1650161008}
 --- !u!95 &766023364
 Animator:
   serializedVersion: 3
@@ -2451,7 +2451,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MainMenuAnim: {fileID: 1273331122}
   SettingsAnim: {fileID: 766023364}
-  CreditsAnim: {fileID: 0}
+  CreditsAnim: {fileID: 1650161008}
 --- !u!114 &858470549
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3053,9 +3053,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 914ad3269d6c46644b26bbbbd3869d7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MainMenuAnim: {fileID: 0}
-  SettingsAnim: {fileID: 0}
-  CreditsAnim: {fileID: 0}
+  MainMenuAnim: {fileID: 1273331122}
+  SettingsAnim: {fileID: 766023364}
+  CreditsAnim: {fileID: 1650161008}
 --- !u!114 &1134198445
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3597,7 +3597,7 @@ GameObject:
   - component: {fileID: 1273331122}
   m_Layer: 5
   m_Name: MainMenu
-  m_TagString: Untagged
+  m_TagString: MainMenuAnim
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4173,7 +4173,7 @@ GameObject:
   - component: {fileID: 1650161008}
   m_Layer: 5
   m_Name: Credits
-  m_TagString: Untagged
+  m_TagString: CreditsAnim
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4544,7 +4544,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MainMenuAnim: {fileID: 1273331122}
   SettingsAnim: {fileID: 766023364}
-  CreditsAnim: {fileID: 0}
+  CreditsAnim: {fileID: 1650161008}
 --- !u!114 &2079694745
 MonoBehaviour:
   m_ObjectHideFlags: 0

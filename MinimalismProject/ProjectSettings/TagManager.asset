@@ -3,7 +3,13 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - PauseMenu
+  - PauseManager
+  - SettingsAnim
+  - MainMenuAnim
+  - CreditsAnim
+  - PauseAnim
   layers:
   - Default
   - TransparentFX
@@ -38,6 +44,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: PauseMenu
+    uniqueID: 3040631717
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
