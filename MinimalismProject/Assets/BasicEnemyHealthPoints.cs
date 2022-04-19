@@ -11,7 +11,6 @@ public class BasicEnemyHealthPoints : MonoBehaviour
         if(collision.gameObject.tag == "Player")
         {
             Destroy(gameObject);
-            print("caca");
         }
     }
 }
