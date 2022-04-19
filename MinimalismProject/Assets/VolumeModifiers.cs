@@ -6,9 +6,9 @@ using TMPro;
 
 public class VolumeModifiers : MonoBehaviour
 {
-    static public float masterSound = 1;
-    static public float music = 1;
-    static public float soundFX = 1;
+    static public float masterSound = 0.75f;
+    static public float music = 0.75f;
+    static public float soundFX = 0.75f;
 
     [SerializeField] private TMP_Text MasterSoundPercentage;
     [SerializeField] private Slider MasterSound;
@@ -19,6 +19,12 @@ public class VolumeModifiers : MonoBehaviour
     [SerializeField] private TMP_Text SoundEffectsPercentage;
     [SerializeField] private Slider SFX;
 
+    private void Start()
+    {
+        MasterSound.value = masterSound;
+        Music.value = music;
+        SFX.value = soundFX;
+    }
 
     private void Update()
     {
