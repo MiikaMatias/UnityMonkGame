@@ -11,6 +11,7 @@ TagManager:
   - CreditsAnim
   - PauseAnim
   - VisionCone
+  - Bullet
   layers:
   - Default
   - TransparentFX

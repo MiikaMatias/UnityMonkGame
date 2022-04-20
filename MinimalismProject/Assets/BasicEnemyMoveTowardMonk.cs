@@ -19,7 +19,8 @@ public class BasicEnemyMoveTowardMonk : MonoBehaviour
     {
         if (Time.timeScale != 0)
         {
-            gameObject.transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed);
+            toward = (player.transform.position - transform.position);
+            gameObject.GetComponent<Rigidbody2D>().AddForce(toward * speed);
         }
     }
 
