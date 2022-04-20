@@ -1483,7 +1483,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
+  m_BackGroundColor: {r: 0.10065857, g: 0.2963831, b: 0.6132076, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -1583,6 +1583,7 @@ MonoBehaviour:
   MainMenuAnim: {fileID: 0}
   SettingsAnim: {fileID: 0}
   CreditsAnim: {fileID: 0}
+  PauseAnim: {fileID: 0}
 --- !u!114 &635591355
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1859,6 +1860,7 @@ MonoBehaviour:
   MainMenuAnim: {fileID: 1273331122}
   SettingsAnim: {fileID: 766023364}
   CreditsAnim: {fileID: 1650161008}
+  PauseAnim: {fileID: 0}
 --- !u!1 &766023362
 GameObject:
   m_ObjectHideFlags: 0
@@ -1895,6 +1897,7 @@ MonoBehaviour:
   MainMenuAnim: {fileID: 1273331122}
   SettingsAnim: {fileID: 766023364}
   CreditsAnim: {fileID: 1650161008}
+  PauseAnim: {fileID: 0}
 --- !u!95 &766023364
 Animator:
   serializedVersion: 3
@@ -2452,6 +2455,7 @@ MonoBehaviour:
   MainMenuAnim: {fileID: 1273331122}
   SettingsAnim: {fileID: 766023364}
   CreditsAnim: {fileID: 1650161008}
+  PauseAnim: {fileID: 0}
 --- !u!114 &858470549
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3056,6 +3060,7 @@ MonoBehaviour:
   MainMenuAnim: {fileID: 1273331122}
   SettingsAnim: {fileID: 766023364}
   CreditsAnim: {fileID: 1650161008}
+  PauseAnim: {fileID: 0}
 --- !u!114 &1134198445
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3205,6 +3210,7 @@ MonoBehaviour:
   MainMenuAnim: {fileID: 1273331122}
   SettingsAnim: {fileID: 766023364}
   CreditsAnim: {fileID: 1650161008}
+  PauseAnim: {fileID: 0}
 --- !u!114 &1172140403
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3354,6 +3360,7 @@ MonoBehaviour:
   MainMenuAnim: {fileID: 1273331122}
   SettingsAnim: {fileID: 766023364}
   CreditsAnim: {fileID: 1650161008}
+  PauseAnim: {fileID: 0}
 --- !u!114 &1183667639
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4545,6 +4552,7 @@ MonoBehaviour:
   MainMenuAnim: {fileID: 1273331122}
   SettingsAnim: {fileID: 766023364}
   CreditsAnim: {fileID: 1650161008}
+  PauseAnim: {fileID: 0}
 --- !u!114 &2079694745
 MonoBehaviour:
   m_ObjectHideFlags: 0
