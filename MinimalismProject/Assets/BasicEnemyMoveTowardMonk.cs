@@ -7,6 +7,7 @@ public class BasicEnemyMoveTowardMonk : MonoBehaviour
     private GameObject player;
 
     [SerializeField] float speed = 10f;
+    private float startspeed;
     [SerializeField] float cooldownAmount = 5;
     public bool isHit = false;
 
@@ -16,6 +17,7 @@ public class BasicEnemyMoveTowardMonk : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player");
         StartCoroutine(speedFluctuate());
+        startspeed = speed;
     }
     void Update()
     {
@@ -42,18 +44,18 @@ public class BasicEnemyMoveTowardMonk : MonoBehaviour
     {
         if (isHit == false)
         {
-            speed = speed * 0.5f;
+            speed -= startspeed * 0.4f;
             yield return new WaitForSeconds(Random.Range(0.1f, 0.3f));
-            speed = speed * 0.5f;
+            speed -= startspeed * 0.4f;
             yield return new WaitForSeconds(Random.Range(0.1f, 0.3f));
-            speed = speed * 0.5f;
+            speed -= startspeed * 0.4f;
 
             yield return new WaitForSeconds(Random.Range(1, 3));
-            speed = speed * 2f;
+            speed += startspeed * 0.5f;
             yield return new WaitForSeconds(Random.Range(0.1f, 0.3f));
-            speed = speed * 2f;
+            speed += startspeed * 0.5f;
             yield return new WaitForSeconds(Random.Range(0.1f, 0.3f));
-            speed = speed * 2f;
+            speed += startspeed * 0.5f;
         }
         yield return new WaitForSeconds(Random.Range(1, 3));
         StartCoroutine(speedFluctuate());
