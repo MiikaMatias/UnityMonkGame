@@ -12,6 +12,8 @@ TagManager:
   - PauseAnim
   - VisionCone
   - Bullet
+  - Enemy
+  - Destructable
   layers:
   - Default
   - TransparentFX

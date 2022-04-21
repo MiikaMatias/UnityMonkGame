@@ -18,7 +18,7 @@ public class BulletPointShoot : MonoBehaviour
     }
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Mouse0) && cooldownElapsed == true)
+        if(cooldownElapsed == true)
         {
             print("Shot");
             StartCoroutine(shootWave());

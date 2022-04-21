@@ -7,6 +7,8 @@ public class BasicEnemyMoveTowardMonk : MonoBehaviour
     private GameObject player;
 
     [SerializeField] float speed = 10f;
+    [SerializeField] float cooldownAmount = 5;
+    public bool isHit = false;
 
     Vector3 toward; 
 
@@ -17,7 +19,7 @@ public class BasicEnemyMoveTowardMonk : MonoBehaviour
     }
     void Update()
     {
-        if (Time.timeScale != 0)
+        if (Time.timeScale != 0 && isHit == false)
         {
             toward = (player.transform.position - transform.position);
             gameObject.GetComponent<Rigidbody2D>().AddForce(toward * speed);
@@ -26,38 +28,41 @@ public class BasicEnemyMoveTowardMonk : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "VisionCone")
+        if(collision.gameObject.tag == "Bullet")
         {
-            speed = speed * -1;
+            StopCoroutine(cooldown());
+            gameObject.GetComponent<Rigidbody2D>().velocity = new Vector3 (0,0,0);
+            isHit = true;
+            StartCoroutine(cooldown());
+            print(isHit);
         }
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.gameObject.tag == "VisionCone")
-        {
-            speed = Mathf.Abs(speed);
-        }
-
-    }
+    } 
 
     IEnumerator speedFluctuate()
     {
-        speed = speed * 0.5f;
-        yield return new WaitForSeconds(Random.Range(0.1f, 0.3f));
-        speed = speed * 0.5f;
-        yield return new WaitForSeconds(Random.Range(0.1f, 0.3f));
-        speed = speed * 0.5f;
+        if (isHit == false)
+        {
+            speed = speed * 0.5f;
+            yield return new WaitForSeconds(Random.Range(0.1f, 0.3f));
+            speed = speed * 0.5f;
+            yield return new WaitForSeconds(Random.Range(0.1f, 0.3f));
+            speed = speed * 0.5f;
 
-        yield return new WaitForSeconds(Random.Range(1, 3));
-        speed = speed * 2f;
-        yield return new WaitForSeconds(Random.Range(0.1f, 0.3f));
-        speed = speed * 2f;
-        yield return new WaitForSeconds(Random.Range(0.1f, 0.3f));
-        speed = speed * 2f; 
-        
+            yield return new WaitForSeconds(Random.Range(1, 3));
+            speed = speed * 2f;
+            yield return new WaitForSeconds(Random.Range(0.1f, 0.3f));
+            speed = speed * 2f;
+            yield return new WaitForSeconds(Random.Range(0.1f, 0.3f));
+            speed = speed * 2f;
+        }
         yield return new WaitForSeconds(Random.Range(1, 3));
         StartCoroutine(speedFluctuate());
+    }
+
+    IEnumerator cooldown()
+    {
+        yield return new WaitForSeconds(cooldownAmount);
+        isHit = false;
     }
 
 }

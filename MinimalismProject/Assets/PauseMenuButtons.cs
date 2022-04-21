@@ -31,12 +31,17 @@ public class PauseMenuButtons : MonoBehaviour
     public void backToMenu()
     {
         Time.timeScale = 1;
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("MainMenu");
     }
 
     public void settings()
     {
         basicButtons.SetBool("Settings", true);
         SettingsAnim.SetBool("SettingsOn", true);
+    }
+
+    public void replay()
+    {
+        SceneManager.LoadScene("Game");
     }
 }

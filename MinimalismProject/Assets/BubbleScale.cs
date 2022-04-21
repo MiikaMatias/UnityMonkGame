@@ -19,7 +19,7 @@ public class BubbleScale : MonoBehaviour
     {
         if (Time.timeScale != 0)
         {
-            if (positiveGrowth == true && gameObject.transform.localScale.x <= 9)
+            if (positiveGrowth == true && gameObject.transform.localScale.x <= 13.5)
             {
                 scale += growthRate;
             }
