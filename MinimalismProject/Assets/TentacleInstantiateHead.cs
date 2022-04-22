@@ -16,11 +16,10 @@ public class TentacleInstantiateHead : MonoBehaviour
 
     }
 
-    private void Update()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-
+        
     }
-
 
     IEnumerator headInst()
     {
@@ -43,6 +42,7 @@ public class TentacleInstantiateHead : MonoBehaviour
         }
 
         GameObject x = Instantiate(tentacleHead, gameObject.transform.position + toward.normalized*100, Quaternion.identity);
+        x.transform.parent = gameObject.transform;
         x.GetComponent<TentacleHeadInstantiateAnother>().xbigger = xBigger;
         x.GetComponent<TentacleHeadInstantiateAnother>().CoordinateAndPlayerPosition = toward;
         x.GetComponent<TentacleHeadInstantiateAnother>().parent = gameObject;

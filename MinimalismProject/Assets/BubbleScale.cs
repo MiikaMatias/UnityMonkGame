@@ -19,11 +19,11 @@ public class BubbleScale : MonoBehaviour
     {
         if (Time.timeScale != 0)
         {
-            if (positiveGrowth == true && gameObject.transform.localScale.x <= 13.5)
+            if (positiveGrowth == true && gameObject.transform.localScale.x <= 9)
             {
                 scale += growthRate;
             }
-            gameObject.transform.localScale = new Vector3(scale, scale * 0.855f, transform.localScale.z);
+            gameObject.transform.localScale = new Vector3(scale, scale, transform.localScale.z);
         }
 
     }

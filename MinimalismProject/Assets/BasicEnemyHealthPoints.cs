@@ -6,6 +6,8 @@ public class BasicEnemyHealthPoints : MonoBehaviour
 {
     public float knockback = 20;
     public bool destructable = false;
+
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
@@ -27,11 +29,13 @@ public class BasicEnemyHealthPoints : MonoBehaviour
         if (collision.CompareTag("Destructable"))
         {
             destructable = true;
-            print(destructable);
         }
     }
-
-    private IEnumerator slowdown(Vector3 toward, float i)
+    public void stopCoroutine()
+    {
+        StopAllCoroutines();
+    }
+    public IEnumerator slowdown(Vector3 toward, float i)
     {
         i += 0.1f;
         yield return new WaitForSeconds(0.8f);

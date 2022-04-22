@@ -7,15 +7,12 @@ public class TentacleHeadInstantiateAnother : MonoBehaviour
     [SerializeField] private GameObject tentacleHead;
     public GameObject parent;
     [SerializeField] private GameObject player;
+    [SerializeField] private GameObject shootPointForViewDir;
 
-    public float Xupmod = 2.0f;
-    public float Xdownmod = 1.6f;
+    private GameObject next;
 
-    public float Yupmod = 2.0f;
-    public float Ydownmod = 1.6f;
-
-
-
+    private float mintime = 0.5f;
+    private float maxtime = 1.5f;
 
     public float increment = 0.03f;
     public float Xmultiplier = default;
@@ -28,54 +25,90 @@ public class TentacleHeadInstantiateAnother : MonoBehaviour
     public Vector3 CoordinateAndPlayerPosition = default;
 
     private Vector3 toward;
+    private Vector3 looktoward;
+    private Vector3 player2tent;
+
     public float mod = 6000;
-    
+
+    private bool deathByWorm = false;
 
     void Start()
     {
+        shootPointForViewDir = GameObject.FindGameObjectWithTag("ShootPoint");
         player = GameObject.FindGameObjectWithTag("Player");
         StartCoroutine(headInst());
+        StartCoroutine(checkIfnextExists());
 
     }
 
     private void Update()
     {
+        looktoward = (player.transform.position + shootPointForViewDir.transform.position).normalized;
+        player2tent = (player.transform.position + transform.position).normalized;
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if(collision.CompareTag("Circle"))
+        {
+            deathByWorm = true;
+            mintime = 0;
+            maxtime = 0.1f;
+        }
+
+        if (collision.CompareTag("Player"))
+        {
+            collision.GetComponent<ZenControllerControlZen>().lose();
+        }
+
     }
 
     IEnumerator headInst()
     {
-        yield return new WaitForSeconds(Random.Range(0.4f, 1.2f));
-        if(xbigger == false)
+        yield return new WaitForSeconds(Random.Range(mintime, maxtime));
+        print(Vector3.Dot(player2tent, looktoward));
+        if (Vector3.Dot(player2tent, looktoward) >= 0.8 || deathByWorm == true)
         {
-            CoordinateAndPlayerPosition = new Vector3(player.transform.position.x + Random.Range(-mod,mod), Random.Range(CoordinateAndPlayerPosition.y*0.6f,CoordinateAndPlayerPosition.y), CoordinateAndPlayerPosition.z);
+            if (xbigger == false)
+            {
+                CoordinateAndPlayerPosition = new Vector3(player.transform.position.x + Random.Range(-mod, mod), Random.Range(CoordinateAndPlayerPosition.y * 0.6f, CoordinateAndPlayerPosition.y), CoordinateAndPlayerPosition.z);
+            }
+            else
+            {
+                CoordinateAndPlayerPosition = new Vector3(Random.Range(CoordinateAndPlayerPosition.x * 0.6f, CoordinateAndPlayerPosition.x), player.transform.position.y + Random.Range(-mod, mod), CoordinateAndPlayerPosition.z);
+            }
+
+            toward = (CoordinateAndPlayerPosition - transform.position).normalized;
+
+
+            if (mod <= 0)
+            {
+                mod = 0;
+            }
+            else
+            {
+                mod -= mod / 40;
+            }
+
+            next = Instantiate(tentacleHead, transform.position + toward * 75, Quaternion.identity);
+            gameObject.GetComponent<TentacleHeadsPullTogether>().child = next;
+            next.transform.parent = parent.transform;
+            next.GetComponent<TentacleHeadInstantiateAnother>().CoordinateAndPlayerPosition = CoordinateAndPlayerPosition;
+            next.GetComponent<TentacleHeadInstantiateAnother>().xbigger = xbigger;
+            next.GetComponent<TentacleHeadInstantiateAnother>().mod = mod;
+            next.GetComponent<TentacleHeadInstantiateAnother>().parent = parent;
+           
         }
-        else
+    }
+
+    IEnumerator checkIfnextExists()
+    {
+        yield return new WaitForSeconds(3);
+        if (next == null)
         {
-            CoordinateAndPlayerPosition = new Vector3(Random.Range(CoordinateAndPlayerPosition.x * 0.6f, CoordinateAndPlayerPosition.x), player.transform.position.y + Random.Range(-mod, mod), CoordinateAndPlayerPosition.z);
-
+            StartCoroutine(headInst());
         }
-
-        toward = (CoordinateAndPlayerPosition - transform.position).normalized;
-
-
-        if(mod <= 0)
-        {
-            mod = 0;
-        }
-        else
-        {
-            mod -= mod / 40;
-        }
-
-        print(CoordinateAndPlayerPosition);
-
-
-        GameObject next = Instantiate(tentacleHead, transform.position + toward * 75, Quaternion.identity);
-        next.GetComponent<TentacleHeadInstantiateAnother>().CoordinateAndPlayerPosition = CoordinateAndPlayerPosition;
-        next.GetComponent<TentacleHeadInstantiateAnother>().xbigger = xbigger;
-        next.GetComponent<TentacleHeadInstantiateAnother>().mod = mod;
-
-
+        StartCoroutine(checkIfnextExists());
 
     }
 }

@@ -32,11 +32,10 @@ public class BasicEnemyMoveTowardMonk : MonoBehaviour
     {
         if(collision.gameObject.tag == "Bullet")
         {
-            StopCoroutine(cooldown());
             gameObject.GetComponent<Rigidbody2D>().velocity = new Vector3 (0,0,0);
+            gameObject.GetComponent<BasicEnemyHealthPoints>().stopCoroutine();
+            isHit = false;
             isHit = true;
-            StartCoroutine(cooldown());
-            print(isHit);
         }
     } 
 
@@ -51,20 +50,14 @@ public class BasicEnemyMoveTowardMonk : MonoBehaviour
             speed -= startspeed * 0.4f;
 
             yield return new WaitForSeconds(Random.Range(1, 3));
-            speed += startspeed * 0.5f;
+            speed += startspeed * 0.4f;
             yield return new WaitForSeconds(Random.Range(0.1f, 0.3f));
-            speed += startspeed * 0.5f;
+            speed += startspeed * 0.4f;
             yield return new WaitForSeconds(Random.Range(0.1f, 0.3f));
-            speed += startspeed * 0.5f;
+            speed += startspeed * 0.4f;
         }
         yield return new WaitForSeconds(Random.Range(1, 3));
         StartCoroutine(speedFluctuate());
-    }
-
-    IEnumerator cooldown()
-    {
-        yield return new WaitForSeconds(cooldownAmount);
-        isHit = false;
     }
 
 }

@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 4491549900620993202}
   - component: {fileID: 4491549900620993205}
   - component: {fileID: 6713350356931327467}
+  - component: {fileID: 5016240749143132203}
+  - component: {fileID: 786983185456833332}
   m_Layer: 0
   m_Name: EnemyTentacle
   m_TagString: Untagged
@@ -71,9 +73,9 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: ebe73ca9363db456bacf42c025bb4847, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_SortingOrder: 2
+  m_Sprite: {fileID: 4233294638517279482, guid: 708bddc44493941ef834d4a04ee97cf4, type: 3}
+  m_Color: {r: 0, g: 1, b: 0.008734226, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -96,3 +98,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tentacleHead: {fileID: 3316758479104290455, guid: 6c8d852bf72f0e943b745aeefce68f73, type: 3}
+  player: {fileID: 0}
+--- !u!114 &5016240749143132203
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4491549900620993203}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea761d4bfb3f49b4d98dc3aac876642e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &786983185456833332
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4491549900620993203}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5596c899f7d46614e994e4ed1fcc9ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

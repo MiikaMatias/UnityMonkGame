@@ -36,7 +36,7 @@ public class ZenControllerControlZen : MonoBehaviour
         camAnim.SetBool("Win", true);
     }
 
-    private void lose()
+    public void lose()
     {
         camAnim.SetBool("Lose", true);
     }
