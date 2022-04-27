@@ -8,8 +8,8 @@ public class ZenControllerControlZen : MonoBehaviour
 {
     [SerializeField] private Slider sliderZen;
     [SerializeField] private Animator camAnim;
-    public float zen = 0;
-    private float maxZen = 100;
+    static public float zen = 100;
+    private float maxZen = 255;
 
 
     private void Start()
@@ -29,6 +29,7 @@ public class ZenControllerControlZen : MonoBehaviour
         {
             lose();
         }
+
     }
 
     private void win()
@@ -43,8 +44,18 @@ public class ZenControllerControlZen : MonoBehaviour
 
     IEnumerator tickZen()
     {
-        yield return new WaitForSeconds(1);
-        zen += 0.5f;
+        yield return new WaitForSeconds(0.1f);
+        zen += 1.55f/10;
         StartCoroutine(tickZen());
+        if(Input.GetKeyDown(KeyCode.DownArrow))
+        {
+            zen -= 5;
+        }
+
+        if(Input.GetKeyDown(KeyCode.UpArrow))
+        {
+            zen += 5;
+        }
     }
+
 }

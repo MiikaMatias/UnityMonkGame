@@ -6,14 +6,19 @@ public class BasicEnemyHealthPoints : MonoBehaviour
 {
     public float knockback = 20;
     public bool destructable = false;
+    
+    
 
+    private void Start()
+    {
+        
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
-            collision.GetComponent<ZenControllerControlZen>().zen -= 5;
-            Destroy(gameObject);
+            StartCoroutine(loseZen(15));
         }
 
         if (collision.CompareTag("Bullet"))
@@ -29,6 +34,11 @@ public class BasicEnemyHealthPoints : MonoBehaviour
         if (collision.CompareTag("Destructable"))
         {
             destructable = true;
+        }
+
+        if(collision.CompareTag("Ground"))
+        {
+            Destroy(gameObject);
         }
     }
     public void stopCoroutine()
@@ -49,6 +59,51 @@ public class BasicEnemyHealthPoints : MonoBehaviour
             gameObject.GetComponent<Rigidbody2D>().velocity = new Vector3(0, 0, 0);
             gameObject.GetComponent<BasicEnemyMoveTowardMonk>().isHit = false;
         }
+    }
+
+
+
+    IEnumerator loseZen(float dmg)
+    {
+        yield return new WaitForSeconds(0.1f);
+        ZenControllerControlZen.zen -= dmg / 10;
+
+        yield return new WaitForSeconds(0.1f);
+        ZenControllerControlZen.zen -= dmg / 10;
+
+        yield return new WaitForSeconds(0.1f);
+        ZenControllerControlZen.zen -= dmg / 10;
+
+        yield return new WaitForSeconds(0.1f);
+        ZenControllerControlZen.zen -= dmg / 10;
+
+        yield return new WaitForSeconds(0.1f);
+        ZenControllerControlZen.zen -= dmg / 10;
+
+        yield return new WaitForSeconds(0.1f);
+        ZenControllerControlZen.zen -= dmg / 10;
+
+        yield return new WaitForSeconds(0.1f);
+        ZenControllerControlZen.zen -= dmg / 10;
+
+        yield return new WaitForSeconds(0.1f);
+        ZenControllerControlZen.zen -= dmg / 10;
+
+        yield return new WaitForSeconds(0.1f);
+        ZenControllerControlZen.zen -= dmg / 10;
+
+        yield return new WaitForSeconds(0.1f);
+        ZenControllerControlZen.zen -= dmg / 10;
+
+        yield return new WaitForSeconds(0.1f);
+        ZenControllerControlZen.zen -= dmg / 10;
+
+        yield return new WaitForSeconds(0.1f);
+        ZenControllerControlZen.zen -= dmg / 10;
+
+        Destroy(gameObject);
+
+
     }
 
 }

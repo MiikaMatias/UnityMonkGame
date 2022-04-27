@@ -23,7 +23,7 @@ public class BubbleScale : MonoBehaviour
             {
                 scale += growthRate;
             }
-            gameObject.transform.localScale = new Vector3(scale, scale, transform.localScale.z);
+            gameObject.transform.localScale = new Vector3(scale, scale*0.855f, transform.localScale.z);
         }
 
     }

@@ -11,7 +11,10 @@ public class PauseMenuButtons : MonoBehaviour
 
     private void Start()
     {
-        SettingsAnim = GameObject.FindGameObjectWithTag("SettingsAnim").GetComponent<Animator>();
+        if (SettingsAnim != null)
+        {
+            SettingsAnim = GameObject.FindGameObjectWithTag("SettingsAnim").GetComponent<Animator>();
+        }
         pauseManager = GameObject.FindGameObjectWithTag("PauseManager");
         basicButtons = GameObject.FindGameObjectWithTag("PauseAnim").GetComponent<Animator>();
 

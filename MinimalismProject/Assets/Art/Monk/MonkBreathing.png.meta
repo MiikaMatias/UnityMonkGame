@@ -44,6 +44,15 @@ TextureImporter:
   - first:
       213: -8053807523437218423
     second: ZenBubbleWave_13
+  - first:
+      213: 8620094329544962877
+    second: MonkBreathing_0
+  - first:
+      213: 3957981294346148605
+    second: MonkBreathing_1
+  - first:
+      213: -3378541567578038075
+    second: MonkBreathing_2
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -133,34 +142,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ZenBubbleWave_0
-      rect:
-        serializedVersion: 2
-        x: 10
-        y: 696
-        width: 109
-        height: 67
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 61de540d09af83f30800000000000000
-      internalID: 4555666522961734934
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ZenBubbleWave_1
+      name: MonkBreathing_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 656
-        width: 20
-        height: 4
+        y: 0
+        width: 384
+        height: 448
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -168,20 +156,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a3f3d33208c01b5c0800000000000000
-      internalID: -4201563232873398470
+      spriteID: d33f2ea1f1ab0a770800000000000000
+      internalID: 8620094329544962877
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ZenBubbleWave_2
+      name: MonkBreathing_1
       rect:
         serializedVersion: 2
-        x: 28
-        y: 560
-        width: 80
-        height: 116
+        x: 384
+        y: 0
+        width: 384
+        height: 448
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -189,20 +177,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7ac45e8f24bf75240800000000000000
-      internalID: 4780565794539261095
+      spriteID: dfa942554039de630800000000000000
+      internalID: 3957981294346148605
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ZenBubbleWave_3
+      name: MonkBreathing_2
       rect:
         serializedVersion: 2
-        x: 28
-        y: 552
-        width: 4
-        height: 4
+        x: 768
+        y: 1
+        width: 384
+        height: 447
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -210,218 +198,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: af3d7054fb609ae60800000000000000
-      internalID: 7973912033802834938
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ZenBubbleWave_4
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 408
-        width: 32
-        height: 4
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 53670a82a82f633d0800000000000000
-      internalID: -3227125407763368395
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ZenBubbleWave_5
-      rect:
-        serializedVersion: 2
-        x: 35
-        y: 398
-        width: 93
-        height: 130
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f9d53b6b090a47d00800000000000000
-      internalID: 969576363192442271
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ZenBubbleWave_6
-      rect:
-        serializedVersion: 2
-        x: 40
-        y: 292
-        width: 88
-        height: 84
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c06ff27c4dc58cc70800000000000000
-      internalID: 8991538724989826572
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ZenBubbleWave_7
-      rect:
-        serializedVersion: 2
-        x: 39
-        y: 168
-        width: 89
-        height: 124
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5a5136fcf94f11970800000000000000
-      internalID: 8724022920409716133
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ZenBubbleWave_8
-      rect:
-        serializedVersion: 2
-        x: 40
-        y: 103
-        width: 37
-        height: 45
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 73e017cb8e6991020800000000000000
-      internalID: 2313045809969565239
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ZenBubbleWave_9
-      rect:
-        serializedVersion: 2
-        x: 36
-        y: 84
-        width: 4
-        height: 4
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d26ab698bd39341d0800000000000000
-      internalID: -3367685525230344659
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ZenBubbleWave_10
-      rect:
-        serializedVersion: 2
-        x: 56
-        y: 68
-        width: 6
-        height: 24
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8cc0083150e7d6de0800000000000000
-      internalID: -1338274953992074040
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ZenBubbleWave_11
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 84
-        width: 4
-        height: 4
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 94ee9ce7bb3aa0bc0800000000000000
-      internalID: -3816057708561699255
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ZenBubbleWave_12
-      rect:
-        serializedVersion: 2
-        x: 36
-        y: 33
-        width: 40
-        height: 33
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 88827ecd01ee6a0a0800000000000000
-      internalID: -6870542425314088824
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ZenBubbleWave_13
-      rect:
-        serializedVersion: 2
-        x: 52
-        y: 64
-        width: 4
-        height: 8
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 985f7247ab02b3090800000000000000
-      internalID: -8053807523437218423
+      spriteID: 5c0ae9538520d11d0800000000000000
+      internalID: -3378541567578038075
       vertices: []
       indices: 
       edges: []

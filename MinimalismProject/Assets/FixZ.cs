@@ -7,7 +7,7 @@ public class FixZ : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        transform.position = new Vector3 (gameObject.transform.position.x, gameObject.transform.position.y,268.5573f);
+        transform.position = new Vector3 (gameObject.transform.position.x, gameObject.transform.position.y,0);
     }
 
     // Update is called once per frame

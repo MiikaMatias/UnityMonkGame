@@ -8,6 +8,7 @@ public class TentacleHeadInstantiateAnother : MonoBehaviour
     public GameObject parent;
     [SerializeField] private GameObject player;
     [SerializeField] private GameObject shootPointForViewDir;
+    [SerializeField] private GameObject circle;
 
     private GameObject next;
 
@@ -36,6 +37,7 @@ public class TentacleHeadInstantiateAnother : MonoBehaviour
     {
         shootPointForViewDir = GameObject.FindGameObjectWithTag("ShootPoint");
         player = GameObject.FindGameObjectWithTag("Player");
+        circle = GameObject.FindGameObjectWithTag("Circle");
         StartCoroutine(headInst());
         StartCoroutine(checkIfnextExists());
 
@@ -43,8 +45,17 @@ public class TentacleHeadInstantiateAnother : MonoBehaviour
 
     private void Update()
     {
-        looktoward = (player.transform.position + shootPointForViewDir.transform.position).normalized;
-        player2tent = (player.transform.position + transform.position).normalized;
+        looktoward = (circle.transform.position + shootPointForViewDir.transform.position).normalized;
+        player2tent = (circle.transform.position + transform.position).normalized;
+    }
+
+    private void OnDrawGizmos()
+    {
+        Debug.DrawLine(circle.transform.position, shootPointForViewDir.transform.position);
+        Debug.DrawLine(circle.transform.position, transform.position);
+
+        looktoward = (circle.transform.position + shootPointForViewDir.transform.position).normalized;
+        player2tent = (circle.transform.position + transform.position).normalized;
     }
 
     private void OnTriggerStay2D(Collider2D collision)
@@ -65,9 +76,9 @@ public class TentacleHeadInstantiateAnother : MonoBehaviour
 
     IEnumerator headInst()
     {
-        yield return new WaitForSeconds(Random.Range(mintime, maxtime));
+        yield return new WaitForSeconds(0.5f);
         print(Vector3.Dot(player2tent, looktoward));
-        if (Vector3.Dot(player2tent, looktoward) >= 0.8 || deathByWorm == true)
+        if (Vector3.Dot(player2tent, looktoward) >= 0.8f || deathByWorm == true)
         {
             if (xbigger == false)
             {
@@ -103,7 +114,7 @@ public class TentacleHeadInstantiateAnother : MonoBehaviour
 
     IEnumerator checkIfnextExists()
     {
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(0.5f);
         if (next == null)
         {
             StartCoroutine(headInst());

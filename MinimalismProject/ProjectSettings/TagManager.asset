@@ -16,6 +16,7 @@ TagManager:
   - Destructable
   - ShootPoint
   - Circle
+  - Ground
   layers:
   - Default
   - TransparentFX
