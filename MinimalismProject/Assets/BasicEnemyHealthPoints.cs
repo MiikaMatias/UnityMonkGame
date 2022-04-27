@@ -19,6 +19,7 @@ public class BasicEnemyHealthPoints : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             StartCoroutine(loseZen(15));
+            gameObject.GetComponent<Rigidbody2D>().velocity = new Vector3(0, 0, 0);
         }
 
         if (collision.CompareTag("Bullet"))
@@ -39,6 +40,19 @@ public class BasicEnemyHealthPoints : MonoBehaviour
         if(collision.CompareTag("Ground") && destructable == false)
         {
             Destroy(gameObject);
+        }
+
+        if(collision.CompareTag("Circle"))
+        {
+            gameObject.GetComponent<Animator>().SetBool("InBubble", true);
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Circle"))
+        {
+            gameObject.GetComponent<Animator>().SetBool("InBubble", false);
         }
     }
     public void stopCoroutine()

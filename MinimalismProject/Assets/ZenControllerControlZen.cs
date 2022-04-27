@@ -8,7 +8,7 @@ public class ZenControllerControlZen : MonoBehaviour
 {
     [SerializeField] private Slider sliderZen;
     [SerializeField] private Animator camAnim;
-    static public float zen = 100;
+    static public float zen = 30;
     private float maxZen = 255;
 
 
