@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1975960575457832076}
   - component: {fileID: 1983244341765775070}
-  - component: {fileID: -2933430430973313470}
+  - component: {fileID: -2357448598767331309}
   m_Layer: 0
   m_Name: "W\xF6rm"
   m_TagString: Untagged
@@ -72,8 +72,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: 629196049072772817, guid: 708bddc44493941ef834d4a04ee97cf4, type: 3}
+  m_Color: {r: 0.028514907, g: 0.8584906, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -83,7 +83,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &-2933430430973313470
+--- !u!114 &-2357448598767331309
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -92,11 +92,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 369311595823810606}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 49cdeb5c4f9f9f040a76599a099f2ccd, type: 3}
+  m_Script: {fileID: 11500000, guid: 7e88aa1dbd581f8488096872f7ae0b2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 0}
-  Circle: {fileID: 0}
-  ShootPoint: {fileID: 0}
-  "w\xF6rm": {fileID: 369311595823810606}
-  next: {fileID: 0}
+  "w\xF6rmBody": {fileID: 369311595823810606}
+  player: {fileID: 0}
+  child: {fileID: 0}
+  instantiateDistance: 0.1

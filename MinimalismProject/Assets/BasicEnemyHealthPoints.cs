@@ -36,7 +36,7 @@ public class BasicEnemyHealthPoints : MonoBehaviour
             destructable = true;
         }
 
-        if(collision.CompareTag("Ground"))
+        if(collision.CompareTag("Ground") && destructable == false)
         {
             Destroy(gameObject);
         }

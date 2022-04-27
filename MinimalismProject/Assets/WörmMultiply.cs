@@ -4,79 +4,85 @@ using UnityEngine;
 
 public class WörmMultiply : MonoBehaviour
 {
-    [SerializeField] private GameObject Player;
-    [SerializeField] private GameObject Circle;
-    [SerializeField] private GameObject ShootPoint;
+    [SerializeField] private GameObject wörmBody;
+    [SerializeField] private GameObject player;
+    [SerializeField] private GameObject child;
 
-    [SerializeField] private GameObject wörm;
+    [SerializeField] private GameObject circle;
+    [SerializeField] private GameObject shootpoint;
 
-    [SerializeField] private GameObject next;
+    public GameObject firstWörm;
 
-    Vector3 WörmToPlayer;
-    Vector3 WörmToRandom;
+    Vector3 toward;
 
-    private bool permissionToMultiply = false;
-    
+    public float instantiateDistance = 50;
+
+    public bool destroy = false;
 
     private void Start()
     {
-        StartCoroutine(checkForPermission());
-        Player = GameObject.FindGameObjectWithTag("Player");
-        Circle = GameObject.FindGameObjectWithTag("Circle");
-        ShootPoint = GameObject.FindGameObjectWithTag("ShootPoint");
+        findObjects();
+        getToward();
+        StartCoroutine(instantiateHead());
     }
 
-    private void Update()
+    private void findObjects()
     {
-        WörmToPlayer = (transform.position + Player.transform.position);
+        player = GameObject.FindGameObjectWithTag("Player");
+        circle = GameObject.FindGameObjectWithTag("Circle");
+        shootpoint = GameObject.FindGameObjectWithTag("ShootPoint");
     }
 
-
-
-
-
-    IEnumerator checkForPermission()
+    private void getToward()
     {
-        yield return new WaitForSeconds(0.5f);
-        Vector3 circleToShootpoint = (Circle.transform.position + ShootPoint.transform.position);
-        Vector3 circleToGameObject = (Circle.transform.position + transform.position);
-        if (Vector3.Dot(circleToShootpoint, circleToGameObject) > 0.8f)
+        toward = (player.transform.position) - transform.position;
+
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if(collision.CompareTag("Circle"))
         {
-            RandomizeVector();
+            destroy = true;
         }
 
-        if(next == null)
+        if (collision.CompareTag("Player"))
         {
-            StartCoroutine(checkForPermission());
+            ZenControllerControlZen.zen -= 5;
         }
-       
     }
-
-    void RandomizeVector()
+    private IEnumerator instantiateHead()
     {
-        if (next == null)
+        if (child == null)
         {
-            WörmToRandom = FindInstantiateVector();
-            float dotproduct = Vector3.Dot(WörmToRandom.normalized, WörmToPlayer.normalized);
-            print(dotproduct);
-            if (dotproduct >= 0.8)
-            {
-                instantiateWörmHead();
-            }
-            else
-            {
-                RandomizeVector();
-            }
+            yield return new WaitForSeconds(Random.Range(0.6f,1.4f));
+            testLookDir();
+            StartCoroutine(instantiateHead());
         }
     }
 
-    void instantiateWörmHead()
+    private void setAsParent()
     {
-        next = Instantiate(wörm, transform.position + WörmToRandom * -70, Quaternion.identity);
+        child.transform.parent = firstWörm.transform;
     }
 
-    private Vector3 FindInstantiateVector()
+    private void testLookDir()
     {
-        return (transform.position + new Vector3(Random.Range(-1, 1), Random.Range(-1, 1), transform.position.z)).normalized;
+        Vector3 circle2Shootpoint = shootpoint.transform.position - circle.transform.position;
+        Vector3 circle2wörm = transform.position - circle.transform.position;
+        float dot = Vector3.Dot(circle2Shootpoint.normalized, circle2wörm.normalized);
+        print(dot);
+        if (dot > 0.9f || destroy == true)
+        {
+            child = Instantiate(wörmBody, transform.position + toward.normalized * instantiateDistance, Quaternion.identity);
+            setAsParent();
+            wörmDistManager();
+        }
     }
+
+    private void wörmDistManager()
+    {
+        gameObject.GetComponent<WörmDistanceBetweenManager>().child = child;
+    }
+
 }

@@ -22,11 +22,11 @@ public class TentacleRotate : MonoBehaviour
         float futurespeed = default;
         if (rotationspeed < 0)
         {
-            futurespeed = Random.Range(0, 3f);
+            futurespeed = Random.Range(0, 5f);
         }
         else
         {
-            futurespeed = Random.Range(-3, 0f);
+            futurespeed = Random.Range(-5, 0f);
 
         }
         int i = 100;

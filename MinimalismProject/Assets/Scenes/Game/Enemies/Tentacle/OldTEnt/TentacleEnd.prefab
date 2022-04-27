@@ -31,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 3316758479104290455}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -500.1, y: 533.6, z: 268.5573}
-  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_LocalScale: {x: 75, y: 75, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -103,12 +103,13 @@ MonoBehaviour:
   parent: {fileID: 0}
   player: {fileID: 0}
   shootPointForViewDir: {fileID: 0}
+  circle: {fileID: 0}
   increment: 0.1
   Xmultiplier: 0
   Ymultiplier: 0
   step: 10
   xbigger: 0
-  CoordinateAndPlayerPosition: {x: 0, y: 0, z: 0}
+  CoordinateAndPlayerPosition: {x: 0, y: 0}
   mod: 1000
 --- !u!95 &4433201484357345505
 Animator:
