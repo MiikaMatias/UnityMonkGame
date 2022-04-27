@@ -40,14 +40,14 @@ public class SpawnerSpawn : MonoBehaviour
 
     IEnumerator SpawnScriptBasic()
     {
-        yield return new WaitForSeconds(Random.Range(2,8));
+        yield return new WaitForSeconds(Random.Range(0.5f,2));
         SpawnBasicEnemy();
         StartCoroutine(SpawnScriptBasic());
     }
 
     IEnumerator SpawnScriptMultiplier()
     {
-        yield return new WaitForSeconds(Random.Range(10, 40f));
+        yield return new WaitForSeconds(Random.Range(10, 20f));
         SpawnMultiplier();
         StartCoroutine(SpawnScriptMultiplier());
     }

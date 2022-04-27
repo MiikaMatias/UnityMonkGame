@@ -45,6 +45,7 @@ public class PauseMenuButtons : MonoBehaviour
 
     public void replay()
     {
+        ZenControllerControlZen.zen = 30;
         SceneManager.LoadScene("Game");
     }
 }

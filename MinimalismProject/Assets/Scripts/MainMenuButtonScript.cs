@@ -50,6 +50,7 @@ public class MainMenuButtonScript : MonoBehaviour
 
     public void play()
     {
+        ZenControllerControlZen.zen = 30;
         SceneManager.LoadScene("Game");
     }
 

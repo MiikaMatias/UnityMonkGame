@@ -21,7 +21,7 @@ public class TinyAccelerateTowardPlayer : MonoBehaviour
     {
         if(collision.CompareTag("Player"))
         {
-            ZenControllerControlZen.zen -= 1;
+            ZenControllerControlZen.zen -= 5;
             Destroy(gameObject);
         }
 

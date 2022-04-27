@@ -35,11 +35,13 @@ public class ZenControllerControlZen : MonoBehaviour
     private void win()
     {
         camAnim.SetBool("Win", true);
+        StartCoroutine(unwinlose());
     }
 
     public void lose()
     {
         camAnim.SetBool("Lose", true);
+        StartCoroutine(unwinlose());
     }
 
     IEnumerator tickZen()
@@ -56,6 +58,15 @@ public class ZenControllerControlZen : MonoBehaviour
         {
             zen += 5;
         }
+    }
+
+    IEnumerator unwinlose()
+    {
+        yield return new WaitForEndOfFrame();
+        yield return new WaitForEndOfFrame();
+        camAnim.SetBool("Win", false);
+        camAnim.SetBool("Lose", false);
+
     }
 
 }

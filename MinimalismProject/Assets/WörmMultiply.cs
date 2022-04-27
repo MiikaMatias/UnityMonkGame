@@ -71,7 +71,6 @@ public class WörmMultiply : MonoBehaviour
         Vector3 circle2Shootpoint = shootpoint.transform.position - circle.transform.position;
         Vector3 circle2wörm = transform.position - circle.transform.position;
         float dot = Vector3.Dot(circle2Shootpoint.normalized, circle2wörm.normalized);
-        print(dot);
         if (dot > 0.9f || destroy == true)
         {
             child = Instantiate(wörmBody, transform.position + toward.normalized * instantiateDistance, Quaternion.identity);

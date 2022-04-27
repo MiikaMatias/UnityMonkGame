@@ -18,7 +18,7 @@ public class BasicEnemyHealthPoints : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            StartCoroutine(loseZen(15));
+            StartCoroutine(loseZen(50));
             gameObject.GetComponent<Rigidbody2D>().velocity = new Vector3(0, 0, 0);
         }
 
