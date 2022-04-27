@@ -26,7 +26,6 @@ public class WaveScaleUp : MonoBehaviour
     {
         if (transform.localScale.x <= circle.transform.localScale.x * 0.667)
         {
-            print(Mathf.Abs((color.a - color.a * (circle.transform.localScale.x * 0.667f / transform.localScale.x))/255));
             color = new Vector4(255, 255, 255, Mathf.Abs((color.a - color.a * (circle.transform.localScale.x * 0.667f / transform.localScale.x)) / 255));
             gameObject.transform.localScale = new Vector3(transform.localScale.x + 0.05f, transform.localScale.y + 0.05f, transform.localScale.z);
             bullet[0].GetComponent<SpriteRenderer>().color = color;

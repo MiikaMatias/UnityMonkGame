@@ -8,7 +8,6 @@ public class MonkGetHit : MonoBehaviour
     {
         if(collision.CompareTag("Enemy"))
         {
-            print("yay");
             if(collision.transform.position.x >= transform.position.x)
             {
                 gameObject.GetComponent<Animator>().SetBool("Hitright", true);

@@ -18,8 +18,6 @@ public class VisionConeLocatioBasedOnMousePositionCircle : MonoBehaviour
     void Update()
     {
         mousepos = Input.mousePosition;
-        float radius = bubble.GetComponent<BubbleScale>().scale;
         transform.position = mousepos;
-        print(radius);
     }
 }

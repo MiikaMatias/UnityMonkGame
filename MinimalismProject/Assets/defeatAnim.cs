@@ -17,5 +17,6 @@ public class defeatAnim : MonoBehaviour
         {
             gameObject.GetComponent<Animator>().SetBool("Defeat", true);
         }
+        gameObject.GetComponent<Animator>().SetBool("Defeat", false);
     }
 }

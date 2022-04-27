@@ -20,10 +20,10 @@ public class BulletPointLocationMousePos : MonoBehaviour
     {
         if (Time.timeScale != 0)
         {
-            //mousepos = cam.ScreenToWorldPoint(new Vector3 (Input.mousePosition.x, Input.mousePosition.y, cam.nearClipPlane));
-            mousepos = new Vector3 (Input.mousePosition.x-1920/2, Input.mousePosition.y - 1080/2,0);
+            mousepos = cam.ScreenToWorldPoint(new Vector2 (Input.mousePosition.x, Input.mousePosition.y));
             float radius = bubble.transform.localScale.x;
-            transform.position = bubble.transform.position + (bubble.transform.position + mousepos).normalized * radius * 50;
+            Vector2 add = (mousepos - bubble.transform.position);
+            transform.position = new Vector2(bubble.transform.position.x, bubble.transform.position.y) + add.normalized * radius * 50;
         }
     }
 }
