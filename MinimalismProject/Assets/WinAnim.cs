@@ -17,7 +17,5 @@ public class WinAnim : MonoBehaviour
         {
             gameObject.GetComponent<Animator>().SetBool("Victory", true);
         }
-
-        ZenControllerControlZen.zen -= 0.3f;
     }
 }
