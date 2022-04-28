@@ -9,15 +9,35 @@ public class SpawnerSpawn : MonoBehaviour
     [SerializeField] private GameObject multiplier;
     [SerializeField] private GameObject powerup;
 
+    private float difficultyMod = 1;
+
     private void Start()
     {
         StartCoroutine(SpawnScriptBasic());
         StartCoroutine(SpawnScriptMultiplier());
         StartCoroutine(SpawnScriptPowerUp());
-
+        SetDifficultyMod();
     }
 
-    // Update is called once per frame
+    private void SetDifficultyMod()
+    {
+        switch(SetDifficulty.difficulty)
+        {
+            case 0:
+                difficultyMod = 1.25f;
+                break;
+
+            case 1:
+                difficultyMod = 1;
+                break;
+
+            case 2:
+                difficultyMod = 0.6f;
+                break;
+        }
+        print(difficultyMod);
+    }
+
     private void SpawnBasicEnemy()
     {
         Instantiate(EnemyBasic, transform.position, Quaternion.identity);
@@ -52,21 +72,21 @@ public class SpawnerSpawn : MonoBehaviour
 
     private IEnumerator SpawnScriptBasic()
     {
-        yield return new WaitForSeconds(Random.Range(0.5f,2));
+        yield return new WaitForSeconds(Random.Range(0.5f*difficultyMod,2*difficultyMod));
         SpawnBasicEnemy();
         StartCoroutine(SpawnScriptBasic());
     }
 
     private IEnumerator SpawnScriptMultiplier()
     {
-        yield return new WaitForSeconds(Random.Range(10, 17f));
+        yield return new WaitForSeconds(Random.Range(10*difficultyMod, 17f*difficultyMod));
         SpawnMultiplier();
         StartCoroutine(SpawnScriptMultiplier());
     }
 
     private IEnumerator SpawnScriptPowerUp()
     {
-        yield return new WaitForSeconds(Random.Range(15, 60f));
+        yield return new WaitForSeconds(Random.Range(15*(2.5f-difficultyMod), 60f*(2.5f-difficultyMod)));
         SpawnPowerup();
         StartCoroutine(SpawnScriptPowerUp());
     }
