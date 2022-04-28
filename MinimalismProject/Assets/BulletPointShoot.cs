@@ -12,12 +12,12 @@ public class BulletPointShoot : MonoBehaviour
 
     private bool cooldownElapsed = true;
 
-    private void Start()
+    private void Awake()
     {
     }
     void Update()
     {
-        if(cooldownElapsed == true)
+        if (cooldownElapsed == true)
         {
             StartCoroutine(shootWave());
         }
@@ -43,6 +43,19 @@ public class BulletPointShoot : MonoBehaviour
         yield return new WaitForSeconds(cooldown);
         cooldownElapsed = true;
 
+    }
+
+
+    public void powerUp()
+    {
+        StartCoroutine(powered());
+    }
+
+    IEnumerator powered()
+    {
+        cooldown = 0.1f;
+        yield return new WaitForSeconds(5);
+        cooldown = 2;
     }
 
 }

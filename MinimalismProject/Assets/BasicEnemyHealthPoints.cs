@@ -79,41 +79,45 @@ public class BasicEnemyHealthPoints : MonoBehaviour
 
     IEnumerator loseZen(float dmg)
     {
-        yield return new WaitForSeconds(0.1f);
-        ZenControllerControlZen.zen -= dmg / 10;
+        if (ZenControllerControlZen.zen < 255)
+        {
+            yield return new WaitForSeconds(0.1f);
+            ZenControllerControlZen.zen -= dmg / 10;
 
-        yield return new WaitForSeconds(0.1f);
-        ZenControllerControlZen.zen -= dmg / 10;
+            yield return new WaitForSeconds(0.1f);
+            ZenControllerControlZen.zen -= dmg / 10;
 
-        yield return new WaitForSeconds(0.1f);
-        ZenControllerControlZen.zen -= dmg / 10;
+            yield return new WaitForSeconds(0.1f);
+            ZenControllerControlZen.zen -= dmg / 10;
 
-        yield return new WaitForSeconds(0.1f);
-        ZenControllerControlZen.zen -= dmg / 10;
+            yield return new WaitForSeconds(0.1f);
+            ZenControllerControlZen.zen -= dmg / 10;
 
-        yield return new WaitForSeconds(0.1f);
-        ZenControllerControlZen.zen -= dmg / 10;
+            yield return new WaitForSeconds(0.1f);
+            ZenControllerControlZen.zen -= dmg / 10;
 
-        yield return new WaitForSeconds(0.1f);
-        ZenControllerControlZen.zen -= dmg / 10;
+            yield return new WaitForSeconds(0.1f);
+            ZenControllerControlZen.zen -= dmg / 10;
 
-        yield return new WaitForSeconds(0.1f);
-        ZenControllerControlZen.zen -= dmg / 10;
+            yield return new WaitForSeconds(0.1f);
+            ZenControllerControlZen.zen -= dmg / 10;
 
-        yield return new WaitForSeconds(0.1f);
-        ZenControllerControlZen.zen -= dmg / 10;
+            yield return new WaitForSeconds(0.1f);
+            ZenControllerControlZen.zen -= dmg / 10;
 
-        yield return new WaitForSeconds(0.1f);
-        ZenControllerControlZen.zen -= dmg / 10;
+            yield return new WaitForSeconds(0.1f);
+            ZenControllerControlZen.zen -= dmg / 10;
 
-        yield return new WaitForSeconds(0.1f);
-        ZenControllerControlZen.zen -= dmg / 10;
+            yield return new WaitForSeconds(0.1f);
+            ZenControllerControlZen.zen -= dmg / 10;
 
-        yield return new WaitForSeconds(0.1f);
-        ZenControllerControlZen.zen -= dmg / 10;
+            yield return new WaitForSeconds(0.1f);
+            ZenControllerControlZen.zen -= dmg / 10;
 
-        yield return new WaitForSeconds(0.1f);
-        ZenControllerControlZen.zen -= dmg / 10;
+            yield return new WaitForSeconds(0.1f);
+            ZenControllerControlZen.zen -= dmg / 10;
+
+        }
 
         Destroy(gameObject);
 

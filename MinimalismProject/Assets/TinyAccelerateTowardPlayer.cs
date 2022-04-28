@@ -25,6 +25,11 @@ public class TinyAccelerateTowardPlayer : MonoBehaviour
             Destroy(gameObject);
         }
 
+        if(collision.CompareTag("Wave"))
+        {
+            Destroy(gameObject);
+        }
+
     }
 
     IEnumerator periodicForce()

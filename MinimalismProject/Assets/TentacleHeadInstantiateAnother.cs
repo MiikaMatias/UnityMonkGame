@@ -59,14 +59,14 @@ public class TentacleHeadInstantiateAnother : MonoBehaviour
 
     IEnumerator headInst()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.1f);
 
         Vector2 tranpos = transform.position;
         Vector2 circle2tent = (circle.transform.position + transform.position);
         Vector2 circle2shootpoint = (circle.transform.position + shootPointForViewDir.transform.position);
         print(Vector2.Dot(circle2tent.normalized, circle2shootpoint));
 
-        if (Vector2.Dot(circle2tent.normalized , circle2shootpoint) >= 0.8f || deathByWorm == true)
+        if (Vector2.Dot(circle2tent.normalized , circle2shootpoint) >= 0.975f || deathByWorm == true)
         {
             if (xbigger == false)
             {

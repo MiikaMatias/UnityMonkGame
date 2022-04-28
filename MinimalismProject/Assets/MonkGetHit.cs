@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MonkGetHit : MonoBehaviour
 {
+    [SerializeField] private Animator cam;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.CompareTag("Enemy"))
@@ -11,10 +12,13 @@ public class MonkGetHit : MonoBehaviour
             if(collision.transform.position.x >= transform.position.x)
             {
                 gameObject.GetComponent<Animator>().SetBool("Hitright", true);
+                cam.SetBool("Hurt", true);
             }
-            else
+
+            if (collision.transform.position.x < transform.position.x)
             {
                 gameObject.GetComponent<Animator>().SetBool("Hitleft", true);
+                cam.SetBool("Hurt", true);
             }
             StartCoroutine(falsify());
 
@@ -23,9 +27,11 @@ public class MonkGetHit : MonoBehaviour
 
     IEnumerator falsify()
     {
-        yield return new WaitForSeconds(0.75f);
+        yield return new WaitForSeconds(0.5f);
         gameObject.GetComponent<Animator>().SetBool("Hitright", false);
         gameObject.GetComponent<Animator>().SetBool("Hitleft", false);
+        cam.SetBool("Hurt", false);
+
 
     }
 }

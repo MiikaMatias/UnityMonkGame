@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WinAnim : MonoBehaviour
+public class PowerUp : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
@@ -13,10 +13,6 @@ public class WinAnim : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(ZenControllerControlZen.zen >= 255)
-        {
-            gameObject.GetComponent<Animator>().SetBool("Victory", true);
-        }
-
+        
     }
 }

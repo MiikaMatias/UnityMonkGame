@@ -7,19 +7,23 @@ public class SpawnerSpawn : MonoBehaviour
 
     [SerializeField] private GameObject EnemyBasic;
     [SerializeField] private GameObject multiplier;
-    void Start()
+    [SerializeField] private GameObject powerup;
+
+    private void Start()
     {
         StartCoroutine(SpawnScriptBasic());
         StartCoroutine(SpawnScriptMultiplier());
+        StartCoroutine(SpawnScriptPowerUp());
+
     }
 
     // Update is called once per frame
-    void SpawnBasicEnemy()
+    private void SpawnBasicEnemy()
     {
         Instantiate(EnemyBasic, transform.position, Quaternion.identity);
     }
 
-    void SpawnMultiplier()
+    private void SpawnMultiplier()
     {
         int x = default;
         int whichOne = Random.Range(0, 2);
@@ -38,17 +42,33 @@ public class SpawnerSpawn : MonoBehaviour
 
     }
 
-    IEnumerator SpawnScriptBasic()
+    private void SpawnPowerup()
+    {
+        int y = 1000;
+        int x = Random.Range(-500, 500);
+
+        Instantiate(powerup, new Vector3(x, y, 0), Quaternion.identity);
+    }
+
+    private IEnumerator SpawnScriptBasic()
     {
         yield return new WaitForSeconds(Random.Range(0.5f,2));
         SpawnBasicEnemy();
         StartCoroutine(SpawnScriptBasic());
     }
 
-    IEnumerator SpawnScriptMultiplier()
+    private IEnumerator SpawnScriptMultiplier()
     {
-        yield return new WaitForSeconds(Random.Range(10, 20f));
+        yield return new WaitForSeconds(Random.Range(10, 17f));
         SpawnMultiplier();
         StartCoroutine(SpawnScriptMultiplier());
     }
+
+    private IEnumerator SpawnScriptPowerUp()
+    {
+        yield return new WaitForSeconds(Random.Range(15, 60f));
+        SpawnPowerup();
+        StartCoroutine(SpawnScriptPowerUp());
+    }
+
 }
