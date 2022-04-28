@@ -5,7 +5,6 @@ using UnityEngine;
 public class ScaleBubble : MonoBehaviour
 {
     public float scale = 3;
-    public float growthRate = 0.001f;
 
     private void Start()
     {
@@ -19,10 +18,17 @@ public class ScaleBubble : MonoBehaviour
 
         if (Time.timeScale != 0)
         {
-            if (gameObject.transform.localScale.x <= 9)
+            if (gameObject.transform.localScale.x < 12)
             {
-                print(scale);
-                scale += growthRate;
+                scale = ZenControllerControlZen.zen /ZenControllerControlZen.maxZen*12;
+                if(scale <= 2.2f)
+                {
+                    scale = 2.2f;
+                }
+            }
+            else
+            {
+                transform.localScale = new Vector3(12, 12 * 0.855f, transform.localScale.z);
             }
         }
 

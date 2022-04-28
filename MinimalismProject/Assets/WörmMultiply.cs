@@ -55,7 +55,7 @@ public class WörmMultiply : MonoBehaviour
     {
         if (child == null)
         {
-            yield return new WaitForSeconds(Random.Range(0.6f,1.4f));
+            yield return new WaitForSeconds(Random.Range(0.3f,0.8f));
             testLookDir();
             StartCoroutine(instantiateHead());
         }
@@ -71,7 +71,7 @@ public class WörmMultiply : MonoBehaviour
         Vector3 circle2Shootpoint = shootpoint.transform.position - circle.transform.position;
         Vector3 circle2wörm = transform.position - circle.transform.position;
         float dot = Vector3.Dot(circle2Shootpoint.normalized, circle2wörm.normalized);
-        if (dot > 0.9f || destroy == true)
+        if (dot > 0.985f || destroy == true)
         {
             child = Instantiate(wörmBody, transform.position + toward.normalized * instantiateDistance, Quaternion.identity);
             setAsParent();

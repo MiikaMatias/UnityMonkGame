@@ -8,9 +8,16 @@ public class BlowUp : MonoBehaviour
 
     public float force = 200;
 
+    private bool destructable = false;
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.CompareTag("Bullet"))
+        if(collision.CompareTag("Destructable"))
+        {
+            StartCoroutine(MakeDestructable());
+        }
+
+        if(collision.CompareTag("Bullet") && destructable == true )
         {
             StartCoroutine(InstantiateTiny());
         }
@@ -18,6 +25,7 @@ public class BlowUp : MonoBehaviour
 
     IEnumerator InstantiateTiny()
     {
+        gameObject.GetComponent<MultiplierMovement>().persec = 0;
         for(int i = Random.Range(2, 6); i > 0; i--)
         {
             yield return new WaitForSeconds(Random.Range(0, 1f));
@@ -29,5 +37,11 @@ public class BlowUp : MonoBehaviour
         
         Destroy(gameObject);
 
+    }
+
+    private IEnumerator MakeDestructable()
+    {
+        yield return new WaitForSeconds(3);
+        destructable = true;
     }
 }

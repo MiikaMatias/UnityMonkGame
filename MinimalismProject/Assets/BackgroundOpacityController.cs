@@ -30,7 +30,7 @@ public class BackgroundOpacityController : MonoBehaviour
         if (zen >= 155)
         {
             tempcolor = win.color;
-            tempcolor.a = (zen - 155)*2.55f;
+            tempcolor.a = ((zen - 155)*2.55f)/255;
             win.color = tempcolor;
         }
         else

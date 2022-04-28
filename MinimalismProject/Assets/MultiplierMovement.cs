@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MultiplierMovement : MonoBehaviour
 {
-    private float persec = 1;
+    public float persec = 1;
     private float yconst;
 
     private float amplitude = 20;
@@ -32,6 +32,6 @@ public class MultiplierMovement : MonoBehaviour
 
         amplitude -= Random.Range(-0.01f, 0.01f);
         frequency -= Random.Range(-0.01f, 0.01f);
-        persec -= Random.Range(-0.01f, 0.008f);
+        persec -= Random.Range(-0.01f, 0.0012f);
     }
 }
