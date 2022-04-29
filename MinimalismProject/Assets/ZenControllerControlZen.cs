@@ -11,6 +11,8 @@ public class ZenControllerControlZen : MonoBehaviour
     static public float zen = 30;
     static public float maxZen = 255;
 
+    private float difficultyMod = 1;
+
 
     private void Start()
     {
@@ -47,17 +49,8 @@ public class ZenControllerControlZen : MonoBehaviour
     IEnumerator tickZen()
     {
         yield return new WaitForSeconds(0.1f);
-        zen += 1.75f/10;
+        zen += 1.75f/10*difficultyMod;
         StartCoroutine(tickZen());
-        if(Input.GetKeyDown(KeyCode.DownArrow))
-        {
-            zen -= 5;
-        }
-
-        if(Input.GetKeyDown(KeyCode.UpArrow))
-        {
-            zen += 30;
-        }
     }
 
     IEnumerator unwinlose()
@@ -67,6 +60,25 @@ public class ZenControllerControlZen : MonoBehaviour
         camAnim.SetBool("Win", false);
         camAnim.SetBool("Lose", false);
 
+    }
+
+    private void SetDifficultyMod()
+    {
+        switch (SetDifficulty.difficulty)
+        {
+            case 0:
+                difficultyMod = 1.2f;
+                break;
+
+            case 1:
+                difficultyMod = 1;
+                break;
+
+            case 2:
+                difficultyMod = 0.8f;
+                break;
+        }
+        print(difficultyMod);
     }
 
 }

@@ -18,6 +18,8 @@ TagManager:
   - Circle
   - Ground
   - Wave
+  - Melody
+  - Spice
   layers:
   - Default
   - TransparentFX

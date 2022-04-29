@@ -10,6 +10,8 @@ public class TinyAccelerateTowardPlayer : MonoBehaviour
     public float forceStart = 50;
     public float forceIncremental = 5;
 
+    private bool ded = false;
+
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
@@ -19,7 +21,7 @@ public class TinyAccelerateTowardPlayer : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.CompareTag("Player"))
+        if (collision.CompareTag("Player") && ded == false)
         {
             ZenControllerControlZen.zen -= 5;
             Destroy(gameObject);
@@ -27,9 +29,25 @@ public class TinyAccelerateTowardPlayer : MonoBehaviour
 
         if(collision.CompareTag("Wave"))
         {
-            Destroy(gameObject);
+            ded = true;
+            gameObject.GetComponent<Animator>().SetBool("Die", true);
+            gameObject.GetComponent<Rigidbody2D>().velocity = new Vector3(0, 0, 0);
         }
 
+        if (collision.CompareTag("Circle"))
+        {
+            gameObject.GetComponent<Animator>().SetBool("InBubble", true);
+        }
+
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+
+        if (collision.CompareTag("Circle"))
+        {
+            gameObject.GetComponent<Animator>().SetBool("InBubble", false);
+        }
     }
 
     IEnumerator periodicForce()
@@ -37,5 +55,10 @@ public class TinyAccelerateTowardPlayer : MonoBehaviour
         yield return new WaitForSeconds(Random.Range(0, 0.4f));
         gameObject.GetComponent<Rigidbody2D>().AddForce(toward * forceIncremental, ForceMode2D.Impulse);
         StartCoroutine(periodicForce());
+    }
+
+    public void die()
+    {
+        Destroy(gameObject);
     }
 }
