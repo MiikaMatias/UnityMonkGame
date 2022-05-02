@@ -10,6 +10,7 @@ public class WörmMultiply : MonoBehaviour
 
     [SerializeField] private GameObject circle;
     [SerializeField] private GameObject shootpoint;
+    [SerializeField] private Animator anim;
 
     public GameObject firstWörm;
 
@@ -21,6 +22,7 @@ public class WörmMultiply : MonoBehaviour
 
     private void Start()
     {
+        anim.SetBool("Head", true);
         findObjects();
         getToward();
         StartCoroutine(instantiateHead());
@@ -73,6 +75,7 @@ public class WörmMultiply : MonoBehaviour
         float dot = Vector3.Dot(circle2Shootpoint.normalized, circle2wörm.normalized);
         if (dot > 0.985f || destroy == true)
         {
+            anim.SetBool("Body", true);
             child = Instantiate(wörmBody, transform.position + toward.normalized * instantiateDistance, Quaternion.identity);
             setAsParent();
             wörmDistManager();

@@ -32,6 +32,7 @@ public class Audiomanager : MonoBehaviour
     private IEnumerator StartMelody()
     {
         yield return new WaitForSeconds(28f);
+        GameObject.FindGameObjectWithTag("BulletAudioManager").GetComponent<BulletAudioManager>().ChantOver = true;
         StartCoroutine(FadeIn(0.1f));
         audioObject.clip = audio[1];
         audioObject.Play();

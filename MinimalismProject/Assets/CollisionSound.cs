@@ -11,19 +11,18 @@ public class CollisionSound : MonoBehaviour
         audio.volume = 0;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
+        audio.volume = 0.5f * VolumeModifiers.soundFX;
+
         if (collision.CompareTag("Enemy"))
         {
             audio.volume = 1;
         }
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Enemy"))
+        else
         {
             audio.volume = 0;
         }
     }
+
 }

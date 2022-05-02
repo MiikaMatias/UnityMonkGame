@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 7960227973057245171}
   - component: {fileID: -491546617114779769}
   - component: {fileID: 896194427206661485}
+  - component: {fileID: 1649964596458370848}
   m_Layer: 0
   m_Name: "W\xF6rmBody"
   m_TagString: Untagged
@@ -76,7 +77,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: -1276383895258233430, guid: 16693e4c09bf248a0b2036bc83b52385, type: 3}
+  m_Sprite: {fileID: -135892502241971304, guid: 585f03fd1c6d24b789cbd2b5716492d4, type: 3}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -104,6 +105,7 @@ MonoBehaviour:
   child: {fileID: 0}
   circle: {fileID: 0}
   shootpoint: {fileID: 0}
+  anim: {fileID: 7068835689278416451}
   "firstW\xF6rm": {fileID: 0}
   instantiateDistance: 62.5
   destroy: 0
@@ -170,3 +172,17 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 1.28
+--- !u!114 &1649964596458370848
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 20529445766263372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da48ef1edfd454c45882326edc0dad54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 180
+  rotationModifier: 179

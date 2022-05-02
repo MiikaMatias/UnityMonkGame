@@ -20,11 +20,12 @@ TagManager:
   - Wave
   - Melody
   - Spice
+  - BulletAudioManager
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Post Processing
   - Water
   - UI
   - 
@@ -54,6 +55,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Post Processing
+    uniqueID: 2974587667
+    locked: 0
   - name: PauseMenu
     uniqueID: 3040631717
     locked: 0
