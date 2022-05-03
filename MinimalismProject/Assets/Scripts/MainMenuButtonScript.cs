@@ -9,6 +9,7 @@ public class MainMenuButtonScript : MonoBehaviour
     [SerializeField] private Animator SettingsAnim;
     [SerializeField] private Animator CreditsAnim;
     [SerializeField] private Animator PauseAnim;
+    [SerializeField] private Animator fader;
 
     private void Start()
     {
@@ -51,7 +52,7 @@ public class MainMenuButtonScript : MonoBehaviour
     public void play()
     {
         ZenControllerControlZen.zen = 30;
-        SceneManager.LoadScene("Game");
+        fader.SetBool("Fade", true);
     }
 
     public void settings()

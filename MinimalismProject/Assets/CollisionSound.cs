@@ -4,25 +4,26 @@ using UnityEngine;
 
 public class CollisionSound : MonoBehaviour
 {
-    [SerializeField] AudioSource audio;
+    private bool inbubble;
+    [SerializeField] GameObject bassPlayer;
 
     private void Awake()
     {
-        audio.volume = 0;
     }
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        audio.volume = 0.5f * VolumeModifiers.soundFX;
 
         if (collision.CompareTag("Enemy"))
         {
-            audio.volume = 1;
+            bassPlayer.GetComponent<PlayBassEnemy>().enemyInBubble = true;
         }
         else
         {
-            audio.volume = 0;
+            bassPlayer.GetComponent<PlayBassEnemy>().enemyInBubble = false;
         }
+
     }
+
 
 }

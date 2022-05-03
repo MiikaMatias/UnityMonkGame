@@ -14,6 +14,7 @@ public class TinyAccelerateTowardPlayer : MonoBehaviour
 
     void Start()
     {
+        StartCoroutine(SelfDestruct());
         player = GameObject.FindGameObjectWithTag("Player");
         toward = player.transform.position - transform.position;
         StartCoroutine(periodicForce());
@@ -59,6 +60,12 @@ public class TinyAccelerateTowardPlayer : MonoBehaviour
 
     public void die()
     {
+        Destroy(gameObject);
+    }
+
+    IEnumerator SelfDestruct()
+    {
+        yield return new WaitForSeconds(10);
         Destroy(gameObject);
     }
 }
